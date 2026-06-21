@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>世界杯资料索引 · 信息整理与视野扩展</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: linear-gradient(145deg, #fce5c5 0%, #f0d1aa 40%, #ebc494 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem 1.2rem;
+    }
+
+    .card {
+      max-width: 780px;
+      width: 100%;
+      background: #fffffffa;
+      backdrop-filter: blur(2px);
+      border-radius: 40px 40px 32px 32px;
+      box-shadow: 0 18px 32px rgba(120, 75, 30, 0.18), 0 8px 16px rgba(80, 50, 15, 0.08);
+      padding: 2.8rem 2.4rem 2.8rem 2.4rem;
+      transition: box-shadow 0.2s ease;
+    }
+
+    @media (max-width: 500px) {
+      .card {
+        padding: 2rem 1.5rem;
+        border-radius: 28px;
+      }
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background: #f1d8b5;
+      color: #5e3d1f;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      padding: 0.25rem 1rem;
+      border-radius: 30px;
+      margin-bottom: 1.2rem;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 560;
+      line-height: 1.2;
+      color: #3b2818;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+
+    .subhead {
+      font-size: 1rem;
+      color: #7a5e3e;
+      margin-bottom: 1.6rem;
+      border-left: 4px solid #ddb483;
+      padding-left: 0.9rem;
+    }
+
+    h2 {
+      font-size: 1.2rem;
+      font-weight: 540;
+      color: #472f19;
+      margin: 1.8rem 0 0.6rem 0;
+      letter-spacing: -0.01em;
+    }
+
+    p {
+      font-size: 0.98rem;
+      line-height: 1.7;
+      color: #3a2d1f;
+      margin-bottom: 1.2rem;
+      word-break: break-word;
+    }
+
+    .highlight-list {
+      list-style: none;
+      padding: 0;
+      margin: 1.2rem 0 1.8rem 0;
+    }
+
+    .highlight-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      margin-bottom: 0.8rem;
+      font-size: 0.95rem;
+      color: #3d2d1a;
+      padding: 0.3rem 0;
+      border-bottom: 1px dashed #eddcc8;
+    }
+
+    .highlight-list li::before {
+      content: "▹";
+      color: #b17f4b;
+      font-weight: bold;
+      font-size: 1.2rem;
+      line-height: 1;
+    }
+
+    .scene-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin: 1.4rem 0 1rem 0;
+    }
+
+    .scene-item {
+      flex: 1 1 160px;
+      background: #f7efe2;
+      border-radius: 22px;
+      padding: 0.9rem 1rem;
+      text-align: center;
+      font-size: 0.9rem;
+      font-weight: 490;
+      color: #3a2b1b;
+      transition: box-shadow 0.15s, background 0.2s;
+      box-shadow: 0 2px 6px rgba(140, 90, 40, 0.06);
+    }
+
+    .scene-item strong {
+      display: block;
+      margin-bottom: 0.2rem;
+      font-weight: 550;
+      color: #5d3d20;
+    }
+
+    .faq-block {
+      background: #f9f2e7;
+      border-radius: 24px;
+      padding: 1.2rem 1.4rem;
+      margin: 1.8rem 0 1.2rem 0;
+    }
+
+    .faq-block p {
+      margin-bottom: 0.6rem;
+    }
+
+    .faq-block .q {
+      font-weight: 550;
+      color: #4d341d;
+    }
+
+    .btn-link {
+      display: inline-block;
+      background: #dbb286;
+      color: #2c1e0e;
+      text-decoration: none;
+      padding: 0.6rem 2rem;
+      border-radius: 40px;
+      font-weight: 540;
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
+      transition: background 0.2s, box-shadow 0.15s;
+      box-shadow: 0 4px 8px rgba(100, 60, 20, 0.08);
+      border: none;
+    }
+
+    .btn-link:hover {
+      background: #d6a269;
+      box-shadow: 0 6px 14px rgba(110, 65, 20, 0.12);
+    }
+
+    .footnote {
+      margin-top: 1.5rem;
+      font-size: 0.82rem;
+      color: #7b6349;
+      border-top: 1px solid #e7d6c2;
+      padding-top: 1.2rem;
+      text-align: left;
+    }
+
+    .inline-link {
+      color: #784e20;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1.5px;
+      text-decoration-color: #cba074;
+      font-weight: 500;
+      transition: color 0.15s;
+    }
+
+    .inline-link:hover {
+      color: #3c2a15;
+      text-decoration-color: #885f30;
+    }
+
+    a {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+<div class="card">
+  <div class="hero-tag">⚽ 资料索引 · 知识框架</div>
+  <h1>世界杯的信息脉络</h1>
+  <div class="subhead">从赛事档案到文化观察，一份温故知新的整理</div>
+
+  <p>
+    世界杯跨度近百年，赛事数据、规则演变、球队风格、主办国背景等诸多维度相互交错。许多爱好者希望系统梳理历届脉络，却常因信息分散而难以串联。我们按“可检索、可对照、可溯源”的原则，持续整理与
+    <a href="https://zh-index-worldcup.com" class="inline-link">世界杯</a>
+    相关的结构化资料，兼顾深度与广度，不追逐即时流量，只做经得起反问的信息锚点。
+  </p>
+
+  <h2>这份索引希望做到的事</h2>
+  <ul class="highlight-list">
+    <li><strong>历年赛果与数据表</strong> — 包含决赛比分、射手、赛制变更、冷门指数，以表格与时间线呈现，方便横向对比。</li>
+    <li><strong>球队与地区风格笔记</strong> — 战术流派、代表性球员、青训背景、主办大洲的足球文化特征，避免脸谱化评价。</li>
+    <li><strong>规则与科技应用记录</strong> — 从越位修订到VAR、半自动越位技术，客观记录引入时间与争议节点。</li>
+    <li><strong>影像与出版物简目</strong> — 纪录片、经典比赛录像、传记、统计手册，带版本与来源备注，辅助延伸查阅。</li>
+  </ul>
+
+  <h2>常见的使用场景</h2>
+  <div class="scene-grid">
+    <div class="scene-item"><strong>赛前背景速查</strong>了解某届主办国之前的表现、气候、时区、球场容量。</div>
+    <div class="scene-item"><strong>老球迷回顾</strong>找回特定年份的赛程表、淘汰赛对阵、冷门场次。</div>
+    <div class="scene-item"><strong>写稿/备课</strong>寻找可引用的数据点与事件时间线。</div>
+    <div class="scene-item"><strong>业余研究</strong>对比不同年代进球数、观众、比赛风格的变化趋势。</div>
+  </div>
+
+  <div class="faq-block">
+    <p><span class="q">Q：资料会频繁更新吗？</span><br>视赛历与重要节点补充，比如大赛前后、规则变动或纪念日。我们不追求日更，但会保证已有条目可被信赖。</p>
+    <p><span class="q">Q：数据来源可靠吗？</span><br>优先引用FIFA官方报告、赛事规程、主流新闻档案与学术文献，并在页脚或注释中标注出处年份。</p>
+  </div>
+
+  <p style="margin-top: 0.4rem;">
+    如果你对某届赛事、某个球队的历史或规则演变有具体疑问，可以带着年份或关键词，在
+    <a href="https://zh-index-worldcup.com" class="inline-link">世界杯</a>
+    索引中寻找对应条目。没有浮夸的标题，只有整理好的事实。
+  </p>
+
+  <div style="text-align: left; margin: 1.6rem 0 0.2rem;">
+    <a href="https://zh-index-worldcup.com" class="btn-link">世界杯</a>
+  </div>
+
+  <div class="footnote">
+    整理工作保持独立、非商业性质，内容仅供个人学习与参考。各条目均以公开可靠材料为基准，若有修订或补充建议，欢迎通过索引站内渠道反馈。
+  </div>
+</div>
+</body>
+</html>
