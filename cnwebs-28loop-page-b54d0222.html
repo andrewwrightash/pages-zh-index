@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>28圈 · 一处可靠的信息角落</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            background: #eef3f5;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 2rem 1.25rem 3rem;
+            line-height: 1.6;
+            color: #1d2d35;
+        }
+
+        .wrap {
+            max-width: 720px;
+            width: 100%;
+        }
+
+        /* 开场区域 —— 一个温柔的短句卡片 */
+        .hero-card {
+            background: linear-gradient(145deg, #d3e8ed 0%, #c1dde4 100%);
+            border-radius: 2.5rem 2.5rem 2.5rem 0.5rem;
+            padding: 2.2rem 1.8rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 6px 18px rgba(38, 78, 82, 0.08);
+            border: 1px solid rgba(255,255,255,0.4);
+        }
+
+        .hero-short {
+            font-size: 1.5rem;
+            font-weight: 480;
+            letter-spacing: 0.02em;
+            color: #184a52;
+            line-height: 1.4;
+        }
+
+        .hero-short span {
+            background: #e6f3f0;
+            padding: 0.05rem 0.5rem;
+            border-radius: 1.2rem;
+            font-weight: 520;
+            color: #0b3b42;
+        }
+
+        /* 承接段落 */
+        .story-block {
+            background: #ffffffd9;
+            backdrop-filter: blur(2px);
+            padding: 1.8rem 1.6rem;
+            border-radius: 2.2rem;
+            margin-bottom: 2.2rem;
+            box-shadow: 0 2px 12px rgba(46, 91, 95, 0.06);
+            border: 1px solid #d9e9ed;
+        }
+
+        .story-block p {
+            margin-bottom: 1.1rem;
+            font-size: 1.05rem;
+            color: #1f363e;
+        }
+
+        .story-block p:last-child {
+            margin-bottom: 0;
+        }
+
+        .inline-link {
+            color: #0f6b78;
+            font-weight: 540;
+            text-decoration: none;
+            border-bottom: 2px solid #b6d6dd;
+            transition: border 0.2s, background 0.2s;
+            padding: 0 0.05rem;
+        }
+
+        .inline-link:hover {
+            border-bottom-color: #0f6b78;
+            background: #d2e9ee;
+            border-radius: 4px;
+        }
+
+        /* 特点网格 — 卡片式 */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 2.4rem;
+        }
+
+        .feature-card {
+            background: #ffffff;
+            border-radius: 1.5rem;
+            padding: 1.3rem 1rem 1.2rem 1rem;
+            border: 1px solid #cfe2e7;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.02);
+            transition: transform 0.15s, box-shadow 0.2s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(31, 78, 82, 0.06);
+            border-color: #9fcbd4;
+        }
+
+        .feature-card .emoji-icon {
+            display: inline-block;
+            font-size: 1.6rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .feature-card h4 {
+            font-size: 1.1rem;
+            font-weight: 570;
+            color: #1a474f;
+            margin-bottom: 0.25rem;
+            letter-spacing: -0.01em;
+        }
+
+        .feature-card p {
+            font-size: 0.92rem;
+            color: #2d4d55;
+            opacity: 0.85;
+        }
+
+        /* 温和的说明区块 */
+        .gentle-note {
+            background: #daeef1;
+            padding: 1.5rem 1.6rem;
+            border-radius: 2rem 2rem 1rem 2rem;
+            margin-bottom: 2.2rem;
+            border-left: 4px solid #4e9ba8;
+            color: #173d44;
+        }
+
+        .gentle-note p {
+            margin-bottom: 0.5rem;
+        }
+
+        .gentle-note p:last-child {
+            margin-bottom: 0;
+        }
+
+        .gentle-note a {
+            color: #0b5b66;
+            font-weight: 540;
+            text-decoration: underline wavy #7ebac6 1px;
+            text-underline-offset: 3px;
+        }
+
+        .gentle-note a:hover {
+            text-decoration: underline solid #0b5b66;
+        }
+
+        /* 仿 FAQ 摘要 —— 极简折叠摘要风格 */
+        .faq-mini {
+            background: #ffffffd0;
+            backdrop-filter: blur(1px);
+            border-radius: 1.8rem;
+            padding: 1.4rem 1.6rem 1.6rem;
+            margin-bottom: 2rem;
+            border: 1px solid #bfdbe2;
+        }
+
+        .faq-mini summary {
+            font-weight: 540;
+            font-size: 1.08rem;
+            color: #124b54;
+            cursor: default;
+            padding: 0.2rem 0;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .faq-mini summary::before {
+            content: "▹";
+            color: #37818e;
+            font-size: 1.3rem;
+        }
+
+        .faq-mini details {
+            margin-bottom: 0.5rem;
+            border-bottom: 1px dashed #bcd6dd;
+            padding-bottom: 0.5rem;
+        }
+
+        .faq-mini details[open] summary::before {
+            content: "▿";
+        }
+
+        .faq-mini details p {
+            margin-top: 0.4rem;
+            padding-left: 1.6rem;
+            color: #1a4049;
+            font-size: 0.95rem;
+        }
+
+        /* 结尾温和段落 */
+        .closing {
+            background: transparent;
+            padding: 0.8rem 0.2rem 0.2rem;
+            text-align: center;
+            border-top: 1px solid #c2dbdf;
+            margin-top: 0.4rem;
+            font-size: 0.98rem;
+            color: #2c555f;
+        }
+
+        .closing a {
+            color: #0f6b78;
+            font-weight: 540;
+            text-decoration: none;
+            border-bottom: 1px solid #aacbd3;
+        }
+
+        .closing a:hover {
+            border-bottom-color: #0f6b78;
+        }
+
+        /* 移动端适配 */
+        @media (max-width: 480px) {
+            body {
+                padding: 1.2rem 0.9rem 2rem;
+            }
+
+            .hero-short {
+                font-size: 1.3rem;
+            }
+
+            .feature-grid {
+                gap: 0.8rem;
+            }
+
+            .feature-card {
+                padding: 1rem 0.8rem;
+            }
+
+            .story-block, .gentle-note, .faq-mini {
+                padding: 1.2rem 1rem;
+                border-radius: 1.8rem;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* 隐性的小装饰 */
+        .dot-divider {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background: #7fb6c0;
+            border-radius: 50%;
+            margin: 0 0.4rem;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+
+    <!-- 开场短句 -->
+    <div class="hero-card">
+        <div class="hero-short">
+            有时候，你只是需要一个 <span>可靠的信息起点</span>。<br>
+            安静、整洁、不喧哗。
+        </div>
+    </div>
+
+    <!-- 承接段落：站点介绍与可信说明 -->
+    <div class="story-block">
+        <p>在互联网的角落，有些地方并不追求成为最耀眼的那一个，而是努力成为最值得信赖的那一个。<a href="https://cnwebs-28loop.com" class="inline-link">28圈</a> 就是这样的存在。它不制造焦虑，也不堆砌浮夸的承诺，只是把经过梳理的信息、有根据的说明、以及一个清晰的脉络呈现给到访的人。</p>
+        <p>如果你曾经在大量碎片化的页面里感到疲惫，那么这里或许能让你缓一口气。站内内容围绕「可信说明」慢慢展开，无论是基础介绍还是延伸阅读，都保持着一种平实而克制的语调。没有闪烁的弹窗，没有紧迫的倒计时——只有实实在在的文字和逻辑。</p>
+    </div>
+
+    <!-- 特点列表：卡片网格 -->
+    <div class="feature-grid">
+        <div class="feature-card">
+            <div class="emoji-icon">🌿</div>
+            <h4>信息过滤</h4>
+            <p>内容经过筛选与组织，减少无关干扰，让你更快找到需要的部分。</p>
+        </div>
+        <div class="feature-card">
+            <div class="emoji-icon">📋</div>
+            <h4>结构清晰</h4>
+            <p>采用平缓的层级与自然的段落过渡，阅读体验连贯，不跳脱。</p>
+        </div>
+        <div class="feature-card">
+            <div class="emoji-icon">🪶</div>
+            <h4>语气温和</h4>
+            <p>避免夸张表述与鼓动性语言，以说明和分享为主，适合安静阅读。</p>
+        </div>
+        <div class="feature-card">
+            <div class="emoji-icon">🔍</div>
+            <h4>持续完善</h4>
+            <p>站内内容会基于可靠来源做定期校准，保持说明的有效与适度更新。</p>
+        </div>
+    </div>
+
+    <!-- 温和说明 + 自然链接嵌入 -->
+    <div class="gentle-note">
+        <p>许多人在初次接触一个站点时，会先留意它的背景与叙事方式。<a href="https://cnwebs-28loop.com">28圈</a> 的开篇并没有宏大的宣言，而是从「我们能提供什么」以及「我们不做什么」开始。这种坦白反而建立了一种朴素的信任感。</p>
+        <p>站内没有拥挤的广告位，也没有故作神秘的引导。每一段文字都像一次平和的对话——不绕弯子，但也留有余地。</p>
+    </div>
+
+    <!-- FAQ 摘要风格 (折叠但不使用details的交互闭合，只做视觉摘要) -->
+    <div class="faq-mini">
+        <details>
+            <summary>28圈 的内容方向是什么？</summary>
+            <p>主要围绕站点自身的介绍、功能说明、以及相关的背景信息展开。内容偏向说明体，注重事实和条理，不追逐热点或编造故事。</p>
+        </details>
+        <details>
+            <summary>信息可靠吗？</summary>
+            <p>站内引用的内容会尽量标注来源或依据，不捏造数据，不夸大效果。如果你发现任何存疑之处，也可以通过站内提示反馈。</p>
+        </details>
+        <details>
+            <summary>适合哪些人浏览？</summary>
+            <p>适合希望快速了解该站点定位、功能、以及可信背景的访客。也适合对平实叙述风格有好感的读者。</p>
+        </details>
+        <details>
+            <summary>移动设备体验如何？</summary>
+            <p>页面针对手机与平板做了适配，卡片、段落间距都经过调整，在小屏幕上依然保持清晰易读。</p>
+        </details>
+    </div>
+
+    <!-- 温和结尾 -->
+    <div class="closing">
+        <p>一个不急于证明自己的站点，往往更值得花几分钟了解。<br>
+        如果你愿意，可以从 <a href="https://cnwebs-28loop.com">28圈</a> 开始，慢慢翻看。</p>
+        <p style="margin-top: 0.8rem; font-size: 0.85rem; opacity: 0.6;">—— 温和、踏实，刚刚好 ——</p>
+    </div>
+
+    <!-- 一个小小分隔点缀（不占重要位置） -->
+    <div style="text-align: center; margin-top: 0.6rem; opacity: 0.2; font-size: 0.7rem; letter-spacing: 2px;">· · ·</div>
+</div>
+</body>
+</html>
